@@ -2,7 +2,7 @@
 
 **Kickoff:** Friday, Nov 13, 2026, 2:30 PM at Fidelis Wealth Advisors (confirm venue with Sam)
 **Cap:** 10 seats. Sean + Sam already counted, so 8 open.
-**RSVP page:** https://castle-rock-ai-innovators.vercel.app
+**RSVP page:** https://castlerockinnovators.com
 **Updated:** 2026-11-06
 
 ## Already in
@@ -43,7 +43,7 @@ Sam Tenney and I are getting a small group together of people in Castle Rock who
 
 Format is simple: quick intros, one person shows something they are working on, then everyone shares one thing they built, one thing they learned, and one thing they want out of the group.
 
-I thought of you because [one specific reason]. Want a seat? Grab one here: https://castle-rock-ai-innovators.vercel.app
+I thought of you because [one specific reason]. Want a seat? Grab one here: https://castlerockinnovators.com
 
 Sean
 
