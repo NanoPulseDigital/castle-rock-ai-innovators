@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Castle Rock AI Innovators | Kickoff Meetup, Nov 13</title>
+<meta name="description" content="A small, local room for people building with AI in Castle Rock. Kickoff meetup Friday, November 13 at 2:30 PM. 10 seats.">
+<meta property="og:title" content="Castle Rock AI Innovators | Kickoff Nov 13">
+<meta property="og:description" content="Show and tell, a go-around, and open discussion. 10 seats for the first one.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #000000;
+    --panel: #0f0f10;
+    --line: #1c1c1f;
+    --text: #f2f2f2;
+    --muted: #9a9aa3;
+    --teal: #00A997;
+    --blue: #19468D;
+    --grad: linear-gradient(90deg, #00A997 0%, #0F6E91 50%, #19468D 100%);
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    --display: "Space Grotesk", var(--sans);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(900px 500px at 15% -10%, rgba(0,169,151,0.18), transparent 60%),
+      radial-gradient(800px 500px at 90% 10%, rgba(25,70,141,0.25), transparent 60%);
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: 48px 48px;
+    -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 20%, transparent 70%);
+    mask-image: radial-gradient(ellipse at 50% 0%, #000 20%, transparent 70%);
+  }
+  .wrap { position: relative; z-index: 1; max-width: 960px; margin: 0 auto; padding: 0 20px; }
+  a { color: var(--teal); }
+
+  header { padding: 28px 0 0; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .brand { font-family: var(--display); font-weight: 700; letter-spacing: 0.02em; font-size: 15px; display: flex; align-items: center; gap: 10px; }
+  .brand .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--grad); box-shadow: 0 0 18px rgba(0,169,151,0.8); }
+  .tag { font-family: var(--mono); font-size: 12px; color: var(--muted); border: 1px solid var(--line); padding: 6px 10px; border-radius: 999px; }
+  .tag b { color: var(--teal); font-weight: 500; }
+
+  .hero { padding: 72px 0 40px; }
+  .kicker { font-family: var(--mono); font-size: 13px; color: var(--teal); letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 18px; }
+  .kicker::before { content: "// "; color: var(--muted); }
+  h1 { font-family: var(--display); font-weight: 700; font-size: clamp(40px, 7vw, 76px); line-height: 1.02; letter-spacing: -0.02em; margin: 0 0 20px; }
+  h1 .g { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lede { font-size: 19px; color: #cfcfd6; max-width: 640px; margin: 0 0 32px; }
+  .when { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 32px; }
+  .when div { border: 1px solid var(--line); background: rgba(15,15,16,0.7); border-radius: 12px; padding: 14px 16px; }
+  .when small { display: block; font-family: var(--mono); font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+  .when strong { font-family: var(--display); font-size: 18px; font-weight: 600; }
+  .when .addr { font-weight: 400; font-size: 14px; color: var(--muted); }
+  .btn { display: inline-block; font-family: var(--display); font-weight: 600; font-size: 15px; letter-spacing: 0.02em; color: #fff; text-decoration: none; padding: 14px 24px; border-radius: 10px; background: var(--grad); box-shadow: 0 0 0 1px rgba(255,255,255,0.08) inset, 0 10px 30px rgba(0,169,151,0.25); transition: transform .15s ease, box-shadow .15s ease; border: 0; cursor: pointer; }
+  .btn:hover { transform: translateY(-1px); box-shadow: 0 0 0 1px rgba(255,255,255,0.12) inset, 0 14px 36px rgba(0,169,151,0.35); }
+  .btn[disabled] { opacity: .6; cursor: default; transform: none; }
+
+  section { padding: 44px 0; border-top: 1px solid var(--line); }
+  h2 { font-family: var(--display); font-size: 28px; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 8px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+
+  .flow { display: grid; gap: 12px; }
+  .step { display: grid; grid-template-columns: 48px 1fr; gap: 12px; align-items: start; border: 1px solid var(--line); background: rgba(15,15,16,0.7); border-radius: 14px; padding: 18px; }
+  .step .n { font-family: var(--mono); color: var(--teal); font-size: 13px; padding-top: 3px; }
+  .step h3 { margin: 0 0 4px; font-family: var(--display); font-size: 18px; font-weight: 600; }
+  .step p { margin: 0; color: #c4c4cc; }
+  .three { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-top: 12px; }
+  .three div { border: 1px dashed rgba(0,169,151,0.45); border-radius: 10px; padding: 12px 14px; font-size: 14px; }
+  .three b { display: block; font-family: var(--mono); font-size: 12px; color: var(--teal); margin-bottom: 4px; }
+
+  .rsvp { display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; align-items: start; }
+  @media (max-width: 760px) { .rsvp { grid-template-columns: 1fr; } }
+  .meter { border: 1px solid var(--line); background: var(--panel); border-radius: 16px; padding: 22px; }
+  .count { font-family: var(--display); font-size: 56px; font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
+  .count span { font-size: 22px; color: var(--muted); font-weight: 500; }
+  .count #taken { font-size: 56px; color: var(--text); font-weight: 700; }
+  .bar { height: 10px; background: #1a1a1d; border-radius: 999px; overflow: hidden; margin: 16px 0 10px; }
+  .bar i { display: block; height: 100%; width: 20%; background: var(--grad); border-radius: 999px; transition: width .6s ease; box-shadow: 0 0 16px rgba(0,169,151,0.6); }
+  .meter p { margin: 0; color: #c4c4cc; font-size: 15px; }
+  .meter .why { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+  .meter .why b { color: var(--text); }
+  .status { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+  form { border: 1px solid var(--line); background: var(--panel); border-radius: 16px; padding: 22px; }
+  label { display: block; font-family: var(--mono); font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 6px; }
+  label .opt { text-transform: none; letter-spacing: 0; }
+  input, textarea { width: 100%; background: #0a0a0b; border: 1px solid #26262b; color: var(--text); border-radius: 10px; padding: 12px 14px; font: inherit; font-size: 15px; margin-bottom: 14px; }
+  input:focus, textarea:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px rgba(0,169,151,0.18); }
+  textarea { resize: vertical; min-height: 72px; }
+  .full-title { margin: 0 0 6px; font-family: var(--display); font-size: 18px; font-weight: 600; }
+  .hint { font-size: 13px; color: var(--muted); margin: 0 0 14px; }
+  .msg { font-size: 14px; margin-top: 12px; min-height: 20px; }
+  .msg.ok { color: var(--teal); }
+  .msg.err { color: #ff7b7b; }
+  .offscreen { position: absolute; left: -9999px; top: -9999px; height: 0; overflow: hidden; }
+  .hidden { display: none !important; }
+
+  .hosts { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+  .host { border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; background: rgba(15,15,16,0.7); }
+  .host b { font-family: var(--display); font-size: 16px; display: block; }
+  .host span { color: var(--muted); font-size: 14px; }
+
+  footer { padding: 40px 0 60px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; font-family: var(--mono); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand"><span class="dot"></span> Castle Rock AI Innovators</div>
+    <div class="tag">kickoff <b>v0.1</b> &middot; seats <b id="tagCount">2/10</b></div>
+  </header>
+
+  <div class="hero">
+    <p class="kicker">Kickoff meetup</p>
+    <h1>Come see what everyone else is <span class="g">actually building</span> with AI.</h1>
+    <p class="lede">A small, local room for people in Castle Rock who are building with AI tools, or itching to start. Not a class. Not a sales pitch. One person shows something real, then everyone gets the floor.</p>
+    <div class="when">
+      <div><small>Date</small><strong>Friday, Nov 13, 2026</strong></div>
+      <div><small>Time</small><strong>2:30 PM</strong></div>
+      <div><small>Where</small><strong>Fidelis Wealth Advisors<br><span class="addr">20 N Wilcox St, Castle Rock</span></strong></div>
+    </div>
+    <a class="btn" href="#rsvp">Grab a seat</a>
+  </div>
+
+  <section id="format">
+    <h2>How the first one runs</h2>
+    <p class="sub">About 90 minutes. Bring a laptop if you want to show something. Not required.</p>
+    <div class="flow">
+      <div class="step"><div class="n">01</div><div><h3>Introductions</h3><p>Who you are, what you do, and how much you have played with this stuff. "Barely" is a fine answer.</p></div></div>
+      <div class="step"><div class="n">02</div><div><h3>Show and tell</h3><p>One person walks through something they are working on. Real project, real screen, real rough edges. Questions welcome throughout.</p></div></div>
+      <div class="step"><div class="n">03</div><div><h3>The go-around</h3><p>Everyone takes a turn and shares three things:</p>
+        <div class="three">
+          <div><b>01 built</b>One thing you have built or used AI for</div>
+          <div><b>02 learned</b>One thing you learned, even if it was "that didn't work"</div>
+          <div><b>03 want</b>One thing you hope to take away from this group</div>
+        </div>
+      </div></div>
+      <div class="step"><div class="n">04</div><div><h3>Open discussion</h3><p>Dig into whatever the go-around surfaced. Compare tools, swap prompts, pair up on a problem. Then we pick a date and a presenter for next time.</p></div></div>
+    </div>
+  </section>
+
+  <section id="rsvp">
+    <h2>Grab a seat</h2>
+    <p class="sub">Registration is one form and takes about 20 seconds.</p>
+    <div class="rsvp">
+      <div class="meter">
+        <div class="count"><span id="taken">2</span> <span>of <span id="max">10</span> seats taken</span></div>
+        <div class="bar"><i id="bar"></i></div>
+        <p id="meterText">8 spots left.</p>
+        <div class="status" id="status">live count</div>
+        <div class="why"><b>Why only 10?</b> We are keeping the first one small on purpose. The room is limited, and we want to gauge interest before we grow it. If it fills up, drop your email and you will hear about the next one first.</div>
+      </div>
+
+      <div>
+        <form id="rsvpForm" autocomplete="on" novalidate>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required autocomplete="name" placeholder="Your name">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+          <label for="building">What are you building or playing with? <span class="opt">(optional)</span></label>
+          <textarea id="building" name="building" placeholder="A Claude Code side project, a GPT for your inbox, nothing yet..."></textarea>
+          <input type="hidden" name="formType" value="rsvp">
+          <input type="hidden" name="_loaded" id="loaded1">
+          <div class="offscreen" aria-hidden="true"><label>Leave blank</label><input type="text" name="npd_confirm_code" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore></div>
+          <button class="btn" type="submit" id="rsvpBtn">Reserve my seat</button>
+          <div class="msg" id="rsvpMsg"></div>
+        </form>
+
+        <form id="updatesForm" class="hidden" autocomplete="on" novalidate>
+          <p class="full-title">The first one is full.</p>
+          <p class="hint">Drop your email and you will be the first to hear about the next meetup.</p>
+          <label for="email2">Email</label>
+          <input id="email2" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+          <input type="hidden" name="formType" value="updates">
+          <input type="hidden" name="_loaded" id="loaded2">
+          <div class="offscreen" aria-hidden="true"><label>Leave blank</label><input type="text" name="npd_confirm_code" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore></div>
+          <button class="btn" type="submit" id="updBtn">Keep me posted</button>
+          <div class="msg" id="updMsg"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="hosts">
+    <h2>Who is behind this</h2>
+    <p class="sub">Two Castle Rock business owners who use this stuff every day and wanted more people to compare notes with.</p>
+    <div class="hosts">
+      <div class="host"><b>Sean Pooley</b><span>Nano Pulse Digital. Websites, automation, and AI tooling for small businesses.</span></div>
+      <div class="host"><b>Sam Tenney</b><span>Fidelis Wealth Advisors. Building his own advisor tooling with Claude Code.</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Castle Rock AI Innovators &middot; 2026</span>
+    <span>questions: <a href="mailto:sean.pooley@nanopulse.digital">sean.pooley@nanopulse.digital</a></span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var API = 'https://npd-forms.vercel.app/api';
+  var SITE = 'castle-rock-ai-innovators';
+  var now = String(Date.now());
+  document.getElementById('loaded1').value = now;
+  document.getElementById('loaded2').value = now;
+
+  function render(d) {
+    document.getElementById('taken').textContent = d.taken;
+    document.getElementById('max').textContent = d.max;
+    document.getElementById('tagCount').textContent = d.taken + '/' + d.max;
+    document.getElementById('bar').style.width = Math.round(100 * d.taken / d.max) + '%';
+    document.getElementById('meterText').textContent = d.full ? 'All seats are taken for the kickoff.' : (d.spotsLeft + (d.spotsLeft === 1 ? ' spot left.' : ' spots left.'));
+    document.getElementById('rsvpForm').classList.toggle('hidden', !!d.full);
+    document.getElementById('updatesForm').classList.toggle('hidden', !d.full);
+  }
+  function refresh() {
+    return fetch(API + '/count?site=' + SITE, { cache: 'no-store' })
+      .then(function (r) { return r.json(); })
+      .then(function (d) { if (d && typeof d.taken === 'number') { render(d); document.getElementById('status').textContent = 'live count'; } })
+      .catch(function () { document.getElementById('status').textContent = 'count unavailable, form still works'; });
+  }
+  refresh();
+
+  function wire(formId, btnId, msgId, okText) {
+    var form = document.getElementById(formId), btn = document.getElementById(btnId), msg = document.getElementById(msgId);
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      msg.className = 'msg'; msg.textContent = '';
+      var data = Object.fromEntries(new FormData(form));
+      if (!data.email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(data.email)) { msg.className = 'msg err'; msg.textContent = 'Please enter a valid email.'; return; }
+      if (formId === 'rsvpForm' && !data.name) { msg.className = 'msg err'; msg.textContent = 'Please add your name.'; return; }
+      // honeypot maps to the field name npd-forms checks
+      data._honey = data.npd_confirm_code || ''; delete data.npd_confirm_code;
+      if (!data.building) delete data.building;
+      var label = btn.textContent; btn.textContent = 'Sending...'; btn.disabled = true;
+      fetch(API + '/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(Object.assign({ site: SITE }, data)) })
+        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, status: r.status, body: j }; }); })
+        .then(function (res) {
+          if (res.ok) { msg.className = 'msg ok'; msg.textContent = okText; form.reset(); document.getElementById('loaded1').value = document.getElementById('loaded2').value = String(Date.now()); }
+          else if (res.status === 409) { msg.className = 'msg err'; msg.textContent = 'Looks like the last seat just went. Add your email for the next one.'; }
+          else { msg.className = 'msg err'; msg.textContent = 'Something went wrong. Email sean.pooley@nanopulse.digital and we will add you.'; }
+          return refresh();
+        })
+        .catch(function () { msg.className = 'msg err'; msg.textContent = 'Network hiccup. Try again in a moment.'; })
+        .then(function () { btn.textContent = label; btn.disabled = false; });
+    });
+  }
+  wire('rsvpForm', 'rsvpBtn', 'rsvpMsg', 'You are in. See you Friday the 13th at 2:30.');
+  wire('updatesForm', 'updBtn', 'updMsg', 'Got it. You will hear about the next one first.');
+})();
+</script>
+</body>
+</html>
